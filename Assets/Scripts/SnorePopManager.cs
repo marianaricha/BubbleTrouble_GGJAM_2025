@@ -14,7 +14,7 @@ public class SnorePopManager : MonoBehaviour
     private float timer;
     private float velocityBoost;
 
-    void Awake()
+    void Start()
     {
         velocityBoost = GameManager.Instance.velocityBoost;
         timer = 10f/velocityBoost;
@@ -26,20 +26,25 @@ public class SnorePopManager : MonoBehaviour
             CountDown();
         }
 
-        if(Input.GetMouseButtonDown(0) && !isFinished){
+        if (Input.GetMouseButtonDown(0)) {
+             CastRay();
+        }  
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-            if (hit.collider != null) {
-                Debug.Log ("CLICKED " + hit.collider.name);
-                isFinished = true;
-                snoreBubble.SetActive(false);
-                guy.SetActive(false);
-                guyFallen.SetActive(true);
-            }
+    }
+    void CastRay() {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast (ray.origin, ray.direction, Mathf.Infinity);
+
+        if (hit.collider !=null) {
+
+            Debug.Log ("CLICKED " + hit.collider.name);
+            isFinished = true;
+            snoreBubble.SetActive(false);
+            guy.SetActive(false);
+            guyFallen.SetActive(true);
+            
         }
-
     }
 
     private void CountDown(){
@@ -50,7 +55,7 @@ public class SnorePopManager : MonoBehaviour
             timerText.text = "0";
             isFinished = true;
             yaaayText.SetActive(true);
-            GameManager.Instance.SetNewPoints(1000 + (int)timer*100);
+            GameManager.Instance.SetNewPoints(1000);
             GameManager.Instance.UpVelocityBoost();
             GameManager.Instance.LoadNextLevel();
         }

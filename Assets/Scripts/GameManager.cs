@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadNextLevel(){
-        SceneManager.LoadScene(Random.Range(0, 1)); // mudar o range quando adicionar cena de menu
+        SceneManager.LoadScene(Random.Range(0, 2)); // mudar o range quando adicionar cena de menu
     }
 
     public void GameOver(){
