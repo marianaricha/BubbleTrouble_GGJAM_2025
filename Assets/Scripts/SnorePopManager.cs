@@ -27,7 +27,7 @@ public class SnorePopManager : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(0)) {
-             CastRay();
+            CastRay();
         }  
 
 
@@ -38,7 +38,6 @@ public class SnorePopManager : MonoBehaviour
 
         if (hit.collider !=null) {
 
-            Debug.Log ("CLICKED " + hit.collider.name);
             isFinished = true;
             snoreBubble.SetActive(false);
             guy.SetActive(false);

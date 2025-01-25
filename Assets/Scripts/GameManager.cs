@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using MaskTransitions;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,10 +39,19 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadNextLevel(){
-        SceneManager.LoadScene(Random.Range(2, 4)); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
+        TransitionManager.Instance.LoadLevel(GetSceneName(Random.Range(2, 4))); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
     }
 
     public void GameOver(){
-        SceneManager.LoadScene(1); // cena GameOver
+        TransitionManager.Instance.LoadLevel(GetSceneName(1)); // cena GameOver
+    }
+
+    public static string GetSceneName(int buildIndex)
+    {
+        string path = SceneUtility.GetScenePathByBuildIndex(buildIndex);
+        int slash = path.LastIndexOf('/');
+        string name = path.Substring(slash + 1);
+        int dot = name.LastIndexOf('.');
+        return name.Substring(0, dot);
     }
 }

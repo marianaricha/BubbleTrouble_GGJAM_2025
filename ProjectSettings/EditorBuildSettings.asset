@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 964b7f44fad93fc40b58ae134c778c9c
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 60de3f42dff4bdd4e99c0386ad4fca9e
+  - enabled: 1
     path: Assets/Scenes/BubbleGum.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
