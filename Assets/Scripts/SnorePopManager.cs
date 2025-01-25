@@ -43,7 +43,7 @@ public class SnorePopManager : MonoBehaviour
             snoreBubble.SetActive(false);
             guy.SetActive(false);
             guyFallen.SetActive(true);
-            
+            GameManager.Instance.GameOver();
         }
     }
 

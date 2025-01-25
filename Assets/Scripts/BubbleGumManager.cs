@@ -46,6 +46,7 @@ public class BubbleGumManager : MonoBehaviour
             isFinished = true;
             girl.SetActive(false);
             girlPopped.SetActive(true);
+            GameManager.Instance.GameOver();
         }
     }
 

@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
+        NewGame();
+    }
+
+    public void NewGame(){
         velocityBoost = 1;
         points = 0;
     }
@@ -34,10 +38,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadNextLevel(){
-        SceneManager.LoadScene(Random.Range(0, 2)); // mudar o range quando adicionar cena de menu
+        SceneManager.LoadScene(Random.Range(2, 4)); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
     }
 
     public void GameOver(){
-
+        SceneManager.LoadScene(1); // cena GameOver
     }
 }
