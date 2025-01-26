@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.83396226, g: 0.83396226, b: 0.83396226, a: 1}
+  m_Color: {r: 0.81886786, g: 0.81886786, b: 0.81886786, a: 0.85882354}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -528,11 +528,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ded5d9f9e12ff24e8cb3593371d99ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePrefab: {fileID: 659157246928280256, guid: 7a997fe7d29707a47a874b5627169735, type: 3}
+  bubblePrefab: {fileID: 6941625757626615884, guid: 2951dc7aacd8367448df9ee4965fa363, type: 3}
   parentTransform: {fileID: 1096368030}
   rows: 5
   columns: 4
-  spacing: 30
+  columnSpacing: 80
+  lineSpacing: 120
   initialPoppedBubbles: 5
   timerText: {fileID: 862409309}
 --- !u!4 &1132562568

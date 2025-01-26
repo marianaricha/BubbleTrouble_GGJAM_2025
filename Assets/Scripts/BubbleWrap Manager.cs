@@ -9,7 +9,8 @@ public class BubbleWrapManager : MonoBehaviour
     public RectTransform parentTransform;
     public int rows = 5;
     public int columns = 4;
-    public float spacing = 30f;
+    public float columnSpacing = 80f;
+    public float lineSpacing = 120f;
     public int initialPoppedBubbles = 5; 
     private bool isFinished = false;
     private List<GameObject> bubbles = new List<GameObject>();
@@ -42,8 +43,8 @@ public class BubbleWrapManager : MonoBehaviour
         RectTransform parentRect = parentTransform.GetComponent<RectTransform>();
         Vector2 bubbleSize = bubblePrefab.GetComponent<RectTransform>().sizeDelta;
 
-        float totalWidth = columns * bubbleSize.x + (columns - 1) * spacing;
-        float totalHeight = rows * bubbleSize.y + (rows - 1) * spacing;
+        float totalWidth = columns * bubbleSize.x + (columns - 1) * columnSpacing;
+        float totalHeight = rows * bubbleSize.y + (rows - 1) * lineSpacing;
 
         float startX = -totalWidth / 2f + bubbleSize.x / 2f;
         float startY = totalHeight / 2f - bubbleSize.y / 2f;
@@ -55,8 +56,8 @@ public class BubbleWrapManager : MonoBehaviour
                 GameObject bubble = Instantiate(bubblePrefab, parentTransform);
                 RectTransform rect = bubble.GetComponent<RectTransform>();
 
-                float x = startX + j * (bubbleSize.x + spacing);
-                float y = startY - i * (bubbleSize.y + spacing);
+                float x = startX + j * (bubbleSize.x + columnSpacing);
+                float y = startY - i * (bubbleSize.y + lineSpacing);
 
                 rect.anchoredPosition = new Vector2(x, y);
 

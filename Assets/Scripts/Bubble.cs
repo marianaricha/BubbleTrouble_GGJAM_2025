@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Bubble : MonoBehaviour
 {
-    public Color poppedColor = Color.gray;
+    public Sprite poppedSprite;
     private Image bubbleImage;
     public bool isPopped = false;
 
@@ -21,7 +21,7 @@ public class Bubble : MonoBehaviour
         if (isPopped) return;
 
         isPopped = true;
-        bubbleImage.color = poppedColor;
+        bubbleImage.sprite = poppedSprite;
     }
 
     public void ForcePop()
@@ -33,6 +33,6 @@ public class Bubble : MonoBehaviour
         {
             bubbleImage = GetComponent<Image>();
         }
-        bubbleImage.color = poppedColor;
+        bubbleImage.sprite = poppedSprite;
     }
 }

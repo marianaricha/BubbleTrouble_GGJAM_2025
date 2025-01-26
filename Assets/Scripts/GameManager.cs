@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadNextLevel(){
-        TransitionManager.Instance.LoadLevel(GetSceneName(Random.Range(2, 4))); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
+        TransitionManager.Instance.LoadLevel(GetSceneName(Random.Range(2, 5))); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
     }
 
     public void GameOver(){
