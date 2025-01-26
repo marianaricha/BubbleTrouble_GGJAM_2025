@@ -14,7 +14,7 @@ public class BubblePopBehavior : MonoBehaviour
     private float timer = 15;
     private float velocityBoost;
     public TextMeshProUGUI timerText;
-    public float speed = 3f;
+    public float speed = 6f;
 
     public static BubblePopBehavior Instance { get; private set; }
 

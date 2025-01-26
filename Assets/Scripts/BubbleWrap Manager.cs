@@ -21,13 +21,15 @@ public class BubbleWrapManager : MonoBehaviour
 
     void Awake()
     {
-        if(velocityBoost <= 0)
-        {
-            velocityBoost = 1f;
-        }
+        // if(velocityBoost <= 0)
+        // {
+        //     velocityBoost = 1f;
+        // }
         GenerateBubbles();
         PopRandomBubbles();
+        velocityBoost = GameManager.Instance.velocityBoost;
         timer = 30f/velocityBoost;
+        if(timer <= 10) timer = 10f;
     }
 
     void Update()
@@ -88,7 +90,6 @@ public class BubbleWrapManager : MonoBehaviour
         timerText.text = Mathf.FloorToInt(timer).ToString();
 
         if(timer <= 0){
-            timer = 0;
             timerText.text = "0";
             isFinished = true;
             GameManager.Instance.GameOver();

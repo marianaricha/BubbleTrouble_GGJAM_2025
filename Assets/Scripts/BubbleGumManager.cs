@@ -22,6 +22,7 @@ public class BubbleGumManager : MonoBehaviour
         scaleChange = new Vector3(5f, 5f, 5f);
         velocityBoost = GameManager.Instance.velocityBoost;
         timer = 20f/velocityBoost;
+        if(timer <= 5) timer = 5f;
         girlPopped.SetActive(false);
         bubbleGumPop.SetActive(false);
     }
