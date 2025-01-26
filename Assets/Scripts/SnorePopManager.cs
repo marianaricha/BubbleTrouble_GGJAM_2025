@@ -16,8 +16,7 @@ public class SnorePopManager : MonoBehaviour
 
     void Start()
     {
-        velocityBoost = GameManager.Instance.velocityBoost;
-        timer = 10f/velocityBoost;
+        timer = 3f;
     }
 
     void Update()
@@ -41,9 +40,14 @@ public class SnorePopManager : MonoBehaviour
             isFinished = true;
             snoreBubble.SetActive(false);
             guy.SetActive(false);
-            guyFallen.SetActive(true);
-            GameManager.Instance.GameOver();
+            StartCoroutine(WaitAnimation());
         }
+    }
+
+    IEnumerator WaitAnimation(){
+        guyFallen.SetActive(true);
+        yield return new WaitForSeconds(2);
+        GameManager.Instance.GameOver();
     }
 
     private void CountDown(){
@@ -53,7 +57,6 @@ public class SnorePopManager : MonoBehaviour
         if(timer <= 0){
             timerText.text = "0";
             isFinished = true;
-            yaaayText.SetActive(true);
             GameManager.Instance.SetNewPoints(1000);
             GameManager.Instance.UpVelocityBoost();
             GameManager.Instance.LoadNextLevel();

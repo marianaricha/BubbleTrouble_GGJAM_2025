@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
     public float velocityBoost;
     public int points;
+    private List<int> buildIndexList;
 
     
     void Awake()
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         NewGame();
+        buildIndexList = GenerateIntegerList(2,4);
     }
 
     public void NewGame(){
@@ -41,7 +43,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadNextLevel(){
-        TransitionManager.Instance.LoadLevel(GetSceneName(Random.Range(2, 5))); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
+        if(buildIndexList.Count == 0){
+            buildIndexList = GenerateIntegerList(2, 4);
+        }
+        TransitionManager.Instance.LoadLevel(GetSceneName(buildIndexList[0])); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
+        buildIndexList.RemoveAt(0);
     }
 
     public void GameOver(){
@@ -55,5 +61,25 @@ public class GameManager : MonoBehaviour
         string name = path.Substring(slash + 1);
         int dot = name.LastIndexOf('.');
         return name.Substring(0, dot);
+    }
+
+    public List<int> GenerateIntegerList(int min, int max)
+    {
+        List < int > list = new List<int>();
+        for (int i = min; i <= max; i++)
+        {
+            list.Add(i);
+        }
+        return ShuffleListWithOrderBy(list);
+    }
+
+    public List<int> ShuffleListWithOrderBy(List<int> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (list[j], list[i]) = (list[i], list[j]);
+        }
+        return list;
     }
 }

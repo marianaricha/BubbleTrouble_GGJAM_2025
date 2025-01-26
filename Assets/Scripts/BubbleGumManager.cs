@@ -35,6 +35,7 @@ public class BubbleGumManager : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && !isFinished){
             bubbleGum.transform.localScale += scaleChange;
+            bubbleGumPop.transform.localScale += scaleChange;
             CheckBubbleSize();
         }
 
@@ -47,25 +48,21 @@ public class BubbleGumManager : MonoBehaviour
         if(timer <= 0){
             timerText.text = "0";
             isFinished = true;
-            girl.SetActive(false);
-            bubbleGum.SetActive(false);
-            girlPopped.SetActive(true);
-            bubbleGumPop.SetActive(true);
             GameManager.Instance.GameOver();
         }
     }
 
     private void CheckBubbleSize(){
-        if(bubbleGum.transform.localScale == new Vector3(150, 150, 150) && timer > 0){
+        if(bubbleGum.transform.localScale == new Vector3(200, 200, 200) && timer > 0){
             isFinished = true;
             yaaayText.SetActive(true);
-            GameManager.Instance.SetNewPoints(1000 + (int)timer*100);
-            GameManager.Instance.UpVelocityBoost();
-            GameManager.Instance.LoadNextLevel();
             girl.SetActive(false);
             bubbleGum.SetActive(false);
             girlPopped.SetActive(true);
             bubbleGumPop.SetActive(true);
+            GameManager.Instance.SetNewPoints(1000 + (int)timer*100);
+            GameManager.Instance.UpVelocityBoost();
+            GameManager.Instance.LoadNextLevel();
             
         }
     }
