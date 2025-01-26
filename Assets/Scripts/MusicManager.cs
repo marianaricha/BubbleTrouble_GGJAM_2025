@@ -6,6 +6,7 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance { get; private set;}
     public AudioSource src;
+    private float velocityBoost;
     void Awake()
     {
         if(Instance != null){
@@ -24,8 +25,11 @@ public class MusicManager : MonoBehaviour
     }
 
     public void SpeedUpMusic(){
-        if(GameManager.Instance.velocityBoost <= 2){
-            src.pitch *= ((GameManager.Instance.velocityBoost-1)/8) + 1;
+        
+        velocityBoost = GameManager.Instance.velocityBoost;
+
+        if(velocityBoost <= 2){
+            src.pitch *= ((velocityBoost-1)/8) + 1;
         }else{
             src.pitch = 2;   
         }

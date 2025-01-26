@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SnorePopManager : MonoBehaviour
+public class SnorePop2Manager : MonoBehaviour
 {
     public GameObject snoreBubble;
     public GameObject guy;
     public GameObject guyFallen;
     public TextMeshProUGUI timerText;
     private bool isFinished = false;
-    public GameObject yaaayText;
     private float timer;
 
     void Start()
@@ -33,7 +32,6 @@ public class SnorePopManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast (ray.origin, ray.direction, Mathf.Infinity);
 
         if (hit.collider !=null) {
-
             isFinished = true;
             snoreBubble.SetActive(false);
             guy.SetActive(false);
@@ -43,8 +41,13 @@ public class SnorePopManager : MonoBehaviour
 
     IEnumerator WaitAnimation(){
         guyFallen.SetActive(true);
+
         yield return new WaitForSeconds(2);
-        GameManager.Instance.GameOver();
+
+        GameManager.Instance.SetNewPoints(1000);
+        GameManager.Instance.UpVelocityBoost();
+        GameManager.Instance.LoadNextLevel();
+        
     }
 
     private void CountDown(){
@@ -54,9 +57,8 @@ public class SnorePopManager : MonoBehaviour
         if(timer <= 0){
             timerText.text = "0";
             isFinished = true;
-            GameManager.Instance.SetNewPoints(1000);
-            GameManager.Instance.UpVelocityBoost();
-            GameManager.Instance.LoadNextLevel();
+            GameManager.Instance.GameOver();
+            
         }
     }
 }
