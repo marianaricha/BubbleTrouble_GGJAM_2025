@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/EasyTransitions/Demo/TransitionDemo.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Menu.unity
@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SnorePop.unity
     guid: 7ba905451b41eb045b40a84640737dee
+  - enabled: 1
+    path: Assets/Scenes/BubbleWrap.unity
+    guid: fd32fc06f316edd42a7a867f2ac2298b
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 2e06e0b106e53d44290cc5762ed5abd9, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: cdf0ac5a317d8f74c8609e39f1531eaf, type: 2}
