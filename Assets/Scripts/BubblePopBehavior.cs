@@ -77,7 +77,7 @@ public class BubblePopBehavior : MonoBehaviour
         timer -= Time.deltaTime;
         timerText.text = Mathf.FloorToInt(timer).ToString();
 
-        if(timer == 0){
+        if(timer <= 0){
             timerText.text = "0";
             isFinished = true;
             bubblePool.ResetPool();
