@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public void NewGame(){
         velocityBoost = 1;
         points = 0;
+        MusicManager.Instance.SpeedUpMusic();
     }
 
     public void SetNewPoints(int pointsGained){
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void UpVelocityBoost(){
         velocityBoost *= (float)1.1;
+        MusicManager.Instance.SpeedUpMusic();
     }
 
     public void LoadNextLevel(){
