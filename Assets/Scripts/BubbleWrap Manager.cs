@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BubbleWrapManager : MonoBehaviour
@@ -10,7 +11,12 @@ public class BubbleWrapManager : MonoBehaviour
     public int columns = 5;
     public float spacing = 10f;
     public int initialPoppedBubbles = 5; 
+    private bool isFinished = false;
     private List<GameObject> bubbles = new List<GameObject>();
+    private float timer;
+    private float velocityBoost;
+    public TextMeshProUGUI timerText;
+
 
     void Start()
     {
@@ -60,6 +66,17 @@ void GenerateBubbles()
                 randomIndexes.Add(randomIndex);
                 bubbles[randomIndex].GetComponent<Bubble>().ForcePop();
             }
+        }
+    }
+
+    private void CountDown(){
+        timer -= Time.deltaTime;
+        timerText.text = timer.ToString("F0");
+
+        if(timer <= 0){
+            timerText.text = "0";
+            isFinished = true;
+            GameManager.Instance.GameOver();
         }
     }
 }

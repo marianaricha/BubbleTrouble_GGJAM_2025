@@ -395,10 +395,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 659157246928280256, guid: 7a997fe7d29707a47a874b5627169735, type: 3}
-  parentTransform: {fileID: 0}
+  parentTransform: {fileID: 1096368030}
   rows: 5
   columns: 5
   spacing: 10
+  initialPoppedBubbles: 5
 --- !u!4 &1132562568
 Transform:
   m_ObjectHideFlags: 0
