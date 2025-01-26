@@ -8,8 +8,8 @@ public class BubbleWrapManager : MonoBehaviour
     public GameObject bubblePrefab;
     public RectTransform parentTransform;
     public int rows = 5;
-    public int columns = 5;
-    public float spacing = 10f;
+    public int columns = 4;
+    public float spacing = 30f;
     public int initialPoppedBubbles = 5; 
     private bool isFinished = false;
     private List<GameObject> bubbles = new List<GameObject>();
@@ -18,39 +18,52 @@ public class BubbleWrapManager : MonoBehaviour
     public TextMeshProUGUI timerText;
 
 
-    void Start()
+    void Awake()
     {
+        if(velocityBoost <= 0)
+        {
+            velocityBoost = 1f;
+        }
         GenerateBubbles();
         PopRandomBubbles();
+        timer = 30f/velocityBoost;
     }
 
-void GenerateBubbles()
-{
-    RectTransform parentRect = parentTransform.GetComponent<RectTransform>();
-    Vector2 bubbleSize = bubblePrefab.GetComponent<RectTransform>().sizeDelta;
-
-    float totalWidth = columns * bubbleSize.x + (columns - 1) * spacing;
-    float totalHeight = rows * bubbleSize.y + (rows - 1) * spacing;
-
-    float startX = -totalWidth / 2f + bubbleSize.x / 2f;
-    float startY = totalHeight / 2f - bubbleSize.y / 2f;
-
-    for (int i = 0; i < rows; i++)
+    void Update()
     {
-        for (int j = 0; j < columns; j++)
+        if(!isFinished)
         {
-            GameObject bubble = Instantiate(bubblePrefab, parentTransform);
-            RectTransform rect = bubble.GetComponent<RectTransform>();
-
-            float x = startX + j * (bubbleSize.x + spacing);
-            float y = startY - i * (bubbleSize.y + spacing);
-
-            rect.anchoredPosition = new Vector2(x, y);
-
-            bubbles.Add(bubble);
+            CountDown();
+            CheckAllBubblesPopped();
         }
     }
-}
+    void GenerateBubbles()
+    {
+        RectTransform parentRect = parentTransform.GetComponent<RectTransform>();
+        Vector2 bubbleSize = bubblePrefab.GetComponent<RectTransform>().sizeDelta;
+
+        float totalWidth = columns * bubbleSize.x + (columns - 1) * spacing;
+        float totalHeight = rows * bubbleSize.y + (rows - 1) * spacing;
+
+        float startX = -totalWidth / 2f + bubbleSize.x / 2f;
+        float startY = totalHeight / 2f - bubbleSize.y / 2f;
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                GameObject bubble = Instantiate(bubblePrefab, parentTransform);
+                RectTransform rect = bubble.GetComponent<RectTransform>();
+
+                float x = startX + j * (bubbleSize.x + spacing);
+                float y = startY - i * (bubbleSize.y + spacing);
+
+                rect.anchoredPosition = new Vector2(x, y);
+
+                bubbles.Add(bubble);
+            }
+        }
+    }
 
 
     void PopRandomBubbles()
@@ -71,12 +84,35 @@ void GenerateBubbles()
 
     private void CountDown(){
         timer -= Time.deltaTime;
-        timerText.text = timer.ToString("F0");
+        timerText.text = Mathf.FloorToInt(timer).ToString();
 
         if(timer <= 0){
+            timer = 0;
             timerText.text = "0";
             isFinished = true;
             GameManager.Instance.GameOver();
+        }
+    }
+
+    private void CheckAllBubblesPopped()
+    {
+        bool allPopped = true;
+
+        foreach (var bubble in bubbles)
+        {
+            if(!bubble.GetComponent<Bubble>().isPopped)
+            {
+                allPopped = false;
+                break;
+            }
+        }
+
+        if(allPopped)
+        {
+            isFinished = true;
+            GameManager.Instance.SetNewPoints(1000 + (int)timer*100);
+            GameManager.Instance.UpVelocityBoost();
+            GameManager.Instance.LoadNextLevel();
         }
     }
 }

@@ -7,7 +7,7 @@ public class Bubble : MonoBehaviour
 {
     public Color poppedColor = Color.gray;
     private Image bubbleImage;
-    private bool isPopped = false;
+    public bool isPopped = false;
 
     void Start()
     {
