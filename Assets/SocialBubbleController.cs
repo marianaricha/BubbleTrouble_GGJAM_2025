@@ -5,6 +5,7 @@ using UnityEngine;
 public class SocialBubbleController : MonoBehaviour
 {
     public GameController gameController;
+    public FriendsController friendsController;
     public GameObject circle;
     private float tempo = 0;
     public float raioMaximo;
@@ -21,12 +22,12 @@ public class SocialBubbleController : MonoBehaviour
             if (distancia > raioMaximo)
             {
                 Vector3 direcao = (circle.transform.position - transform.position).normalized;
-                transform.position += direcao * Time.deltaTime *speed; // Movendo a bolha na direção do círculo
+                transform.position += direcao * Time.deltaTime *speed; 
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.transform.SetParent(transform);
+        friendsController.dentroDaBolha = true;
     }
 }
