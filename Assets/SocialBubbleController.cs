@@ -26,8 +26,4 @@ public class SocialBubbleController : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        friendsController.dentroDaBolha = true;
-    }
 }

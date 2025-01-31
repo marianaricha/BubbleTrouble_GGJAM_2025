@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class CamController : MonoBehaviour
 {
-    public Transform personagem; // Arraste o personagem no Inspector
-    public float minX, maxX, minY, maxY; // Limites da câmera
-
+    public Transform personagem;
+    public float minX, maxX, minY, maxY;
     void LateUpdate()
     {
         if (personagem != null)
         {
-            float z = transform.position.z; // Mantém o Z fixo
-            float x = Mathf.Clamp(personagem.position.x, minX, maxX); // Segue o X dentro dos limites
-            float y = Mathf.Clamp(personagem.position.y, minY, maxY); // Segue o Y dentro dos limites
+            float z = transform.position.z;
+            float x = Mathf.Clamp(personagem.position.x, minX, maxX);
+            float y = Mathf.Clamp(personagem.position.y, minY, maxY);
 
-            transform.position = new Vector3(x, y, z); // Move a câmera
+            transform.position = new Vector3(x, y, z);
         }
     }
 }

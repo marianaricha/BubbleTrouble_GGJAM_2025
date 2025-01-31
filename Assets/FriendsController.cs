@@ -28,21 +28,6 @@ public class FriendsController : MonoBehaviour
     void Update()
     {
         objectPoolFriends.GetFromPool();
-        if(dentroDaBolha)
-        {
-            //Friends.transform.position = SocialBubble.transform.position;
-            float distancia = Vector3.Distance(SocialBubble.transform.position, Friends.transform.position);
-            if(distancia > socialBubbleController.raioMaximo)
-            {
-                Vector3 direcao = (SocialBubble.transform.position - Friends.transform.position).normalized;
-                Friends.transform.position += direcao * Time.deltaTime * socialBubbleController.speed;
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        dentroDaBolha = true;
     }
     private void randomFriend(){
         GameObject friend = objectPoolFriends.GetFromPool();
