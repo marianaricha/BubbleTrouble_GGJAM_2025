@@ -19,6 +19,7 @@ public class FriendsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("FriendsController rodando");
         objectPoolFriends = new ObjectPool(Friends, quantidadeFriends);
         for (int i = 0; i < quantidadeFriends; i++){
             randomFriend();

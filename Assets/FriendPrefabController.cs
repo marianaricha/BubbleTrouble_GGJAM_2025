@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class FriendPrefabController : MonoBehaviour
 {   
-    //public GameObject SocialBubble;
     public GameObject friendGameObject;
-    private int ContCollider = 0;
+    public  int foiContado = 1;
+    //Tive que colocar como int o foiContado,
+    //pois alguma parte da unity o transformava em true no inicio do jogo
+    //mesmo eu tentando encapsular a variável
+    
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Numero de colisões: " + ContCollider);
+        Debug.Log("FriendPrefabController rodando");
+        foiContado = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         friendGameObject.SetActive(false);
-        ContCollider+=1;
-        Debug.Log("Colisões: " + ContCollider);
+        
     }
 }

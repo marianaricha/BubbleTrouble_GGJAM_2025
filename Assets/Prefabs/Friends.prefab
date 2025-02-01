@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6426157237975102113}
   m_Layer: 0
   m_Name: Friends
-  m_TagString: Untagged
+  m_TagString: Friends
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,3 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   friendGameObject: {fileID: 2586473477024906908}
+  ContCollider: 0
+  foiContado: 0
