@@ -12,7 +12,9 @@ public class BubbleCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.SetActive(false);
         Invoke("LoadingFriends", 1f);
+        Invoke("ShowCount", 2.3f);
         Cont = 0;
     }
     void LoadingFriends()
@@ -23,7 +25,9 @@ public class BubbleCounter : MonoBehaviour
 
         AtualizarTexto();
     }
-    
+    void ShowCount(){
+        gameObject.SetActive(true);
+    }
     // Update is called once per frame
     void Update()
     {
