@@ -25,7 +25,9 @@ public class FriendPrefabController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        friendGameObject.SetActive(false);
+        if(other.gameObject.tag == "Bubble"){
+            friendGameObject.SetActive(false);
+        }
         
     }
 }

@@ -39,7 +39,7 @@ public class FriendsController : MonoBehaviour
             Vector3 friendPosition = new Vector3(randomX, randomY, 0);
 
             friend.transform.position = friendPosition;
-            friend.SetActive(false);
+            //friend.SetActive(false);
 
             StartCoroutine(ActivateAfterDelay(friend, 1.5f));
         }

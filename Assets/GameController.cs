@@ -8,34 +8,35 @@ public class GameController : MonoBehaviour
     float time =0;
     public Vector2 direction;
     public GameObject SocialBubble;
+    private Animator animator;
+    public float maxX, minX, MaxY, MinY;
     // Start is called before the first frame update
     void Start()
     {
         direction = new Vector2(1,0);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
+        float horizontalInput = Input.GetAxis("Horizontal");
         if(time > 1.5){
             float dx = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
             float dy = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-            if(dx < 0)
-                direction.x = -1;
-            else if(dx > 0)
-                direction.x = 1;
-            else if(dy < 0)
-                direction.y = -1;
-            else if(dy> 0)
-                direction.y = 1;
-        
-            //transform.Translate(dx, dy, 0);
             Vector3 newPosition = transform.position + new Vector3(dx, dy, 0);
-            newPosition.x = Mathf.Clamp(newPosition.x, -13.8f, 13.8f);
-            newPosition.y = Mathf.Clamp(newPosition.y, -7f, 7f);
+            if(horizontalInput > 0.01f){
+                transform.localScale = Vector3.one;
+            }else if(horizontalInput < -0.01f){
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+
+            newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+            newPosition.y = Mathf.Clamp(newPosition.y, MinY, MaxY);
 
             transform.position = newPosition;
+            animator.SetBool("Walking", horizontalInput != 0);
         }
         
     }

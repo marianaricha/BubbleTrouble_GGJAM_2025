@@ -8,19 +8,23 @@ public class SocialBubbleManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject Friends;
     public TextMeshProUGUI Title;
+    private BubbleCounter bubbleCounter;
     private FriendsController friendsController;
     public TextMeshProUGUI Contador;
     void Start()
     {
         ShowTitle();
-        HideCount();
+        ShowCount();
+        //HideCount();
         //Invoke("HideFriends", 1f);
         Invoke("HideTitle", 1.5f);
-        Invoke("ShowCount", 1.6f);
+        //Invoke("ShowCount", 1.6f);
         //Invoke("ShowFriends", 2.3f);
     }
     void ShowCount(){
+        bubbleCounter.AtualizarTexto();
         Contador.gameObject.SetActive(true);
+
     }
     void HideCount(){
         Contador.gameObject.SetActive(false);
