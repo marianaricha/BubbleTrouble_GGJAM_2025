@@ -13,6 +13,7 @@ public class FriendPrefabController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //friendGameObject.SetActive(false);
         Debug.Log("FriendPrefabController rodando");
         foiContado = 1;
     }

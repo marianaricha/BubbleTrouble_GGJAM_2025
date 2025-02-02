@@ -162,5 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   friendGameObject: {fileID: 2586473477024906908}
-  ContCollider: 0
   foiContado: 0
