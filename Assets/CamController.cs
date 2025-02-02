@@ -24,6 +24,7 @@ using UnityEngine;
 
 public class CamController : MonoBehaviour{
     private float speed = 4.75f;
+    public float minX, maxX, minY, maxY;
     //public float x, y;
 
     //public float offY. offX;
@@ -31,40 +32,40 @@ public class CamController : MonoBehaviour{
 
     void Update(){
         Vector3 newPos = transform.position;
-        if(personagem.transform.position.x < -4.75f && personagem.transform.position.y < -3f){
+        if(personagem.transform.position.x < -minX && personagem.transform.position.y < -minY){
             //baixo esquerda
-           newPos = new Vector3(-4.75f, -3f, -10f);
+           newPos = new Vector3(-minX, -minY, -10f);
             
         }else 
-            if(personagem.transform.position.x < -4.75f && personagem.transform.position.y > 3f){
+            if(personagem.transform.position.x < -minX && personagem.transform.position.y > minY){
             //cima esquerda
-           newPos = new Vector3(-4.75f, 3f, -10f);
+           newPos = new Vector3(-minX, minY, -10f);
             
         }else 
-            if(personagem.transform.position.x > 4.75f && personagem.transform.position.y < -3f){
+            if(personagem.transform.position.x > minX && personagem.transform.position.y < -minY){
             //baixo direita
-           newPos = new Vector3(4.75f, -3f, -10f);
+           newPos = new Vector3(minX, -minY, -10f);
             
         }else 
-            if(personagem.transform.position.x > 4.75f && personagem.transform.position.y > 3f){
+            if(personagem.transform.position.x > minX && personagem.transform.position.y > minY){
             //cima direita
-           newPos = new Vector3(4.75f, 3f, -10f);
+           newPos = new Vector3(minX, minY, -10f);
             
         }else 
-            if(personagem.transform.position.x < -4.75f){
-           newPos = new Vector3(-4.75f, personagem.position.y, -10f);
+            if(personagem.transform.position.x < -minX){
+           newPos = new Vector3(-minX, personagem.position.y, -10f);
             
         }else
-            if(personagem.transform.position.x > 4.75f){
-           newPos = new Vector3(4.75f, personagem.position.y, -10f);
+            if(personagem.transform.position.x > minX){
+           newPos = new Vector3(minX, personagem.position.y, -10f);
             
         }else 
-            if(personagem.transform.position.y > 3f){
-           newPos = new Vector3(personagem.position.x, 3f, -10f);
+            if(personagem.transform.position.y > minY){
+           newPos = new Vector3(personagem.position.x, minY, -10f);
             
         }else 
-            if(personagem.transform.position.y < -3f){
-           newPos = new Vector3(personagem.position.x, -3f, -10f);
+            if(personagem.transform.position.y < -minY){
+           newPos = new Vector3(personagem.position.x, -minY, -10f);
             
         }else{
            newPos = new Vector3(personagem.position.x, personagem.position.y, -10f);

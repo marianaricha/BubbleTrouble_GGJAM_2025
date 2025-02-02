@@ -11,10 +11,7 @@ public class FriendsController : MonoBehaviour
     public GameObject Friends;
     private SocialBubbleController socialBubbleController;
 
-    private float areaXPositiva = 9f;
-    private float areaXNegativa = -12f;
-    private float areaYPositiva = 6f;
-    private float areaYNegativa = -6f;
+    public float x, y;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +31,12 @@ public class FriendsController : MonoBehaviour
     private void randomFriend(){
         GameObject friend = objectPoolFriends.GetFromPool();
         if (friend != null){
-            float randomX = Random.Range(areaXNegativa, areaXPositiva);
-            float randomY = Random.Range(areaYNegativa, areaYPositiva);
+            float randomX = Random.Range(-x, x);
+            float randomY = Random.Range(-y, y);
             Vector3 friendPosition = new Vector3(randomX, randomY, 0);
 
             friend.transform.position = friendPosition;
-            //friend.SetActive(false);
+            friend.SetActive(false);
 
             StartCoroutine(ActivateAfterDelay(friend, 1.5f));
         }

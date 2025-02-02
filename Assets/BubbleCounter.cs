@@ -13,7 +13,8 @@ public class BubbleCounter : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(true);
-        LoadingFriends();
+        //LoadingFriends();
+        Invoke("LoadingFriends", 1.7f);
         //Invoke("ShowCount", 2.3f);
         Cont = 0;
     }

@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,4 +41,35 @@ public class GameController : MonoBehaviour
         
     }
 
+}*/
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameController : MonoBehaviour
+{
+    public float speed = 5f;
+    private SpriteRenderer spriteRenderer;
+    public Animator animator;
+    private Vector3 target;
+    
+    private bool moving = false;
+
+    void Start()
+    {
+        target = transform.position;
+    }
+    void Update()
+    {   
+        if(Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)){
+            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            target.z = 0f;
+            moving = true;
+        }
+        if(target == transform.position){
+            moving = false;
+        }
+        animator.SetBool("Walking", moving);
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+    }
 }

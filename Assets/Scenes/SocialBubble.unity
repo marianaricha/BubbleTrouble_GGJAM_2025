@@ -157,6 +157,8 @@ MonoBehaviour:
   quantidadeFriends: 15
   SocialBubble: {fileID: 927928719}
   Friends: {fileID: 2586473477024906908, guid: e2738904ba483e147b02c13e36494e67, type: 3}
+  x: 7
+  y: 3
 --- !u!212 &143934150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -235,8 +237,6 @@ GameObject:
   - component: {fileID: 766491379}
   - component: {fileID: 766491378}
   - component: {fileID: 766491377}
-  - component: {fileID: 766491380}
-  - component: {fileID: 766491382}
   - component: {fileID: 766491381}
   m_Layer: 0
   m_Name: Main Camera
@@ -319,32 +319,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &766491380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766491376}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d687537154440a3913a9a3c7977978c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraTarget: {fileID: 1979128856}
-  FollowDistance: 30
-  MaxFollowDistance: 100
-  MinFollowDistance: 2
-  ElevationAngle: 30
-  MaxElevationAngle: 85
-  MinElevationAngle: 0
-  OrbitalAngle: 0
-  CameraMode: 0
-  MovementSmoothing: 1
-  RotationSmoothing: 0
-  MovementSmoothingValue: 25
-  RotationSmoothingValue: 5
-  MoveSensitivity: 2
 --- !u!114 &766491381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,33 +331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691cd643745c77b4a8bdff6c5ee7f344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minX: 6
+  maxX: 0
+  minY: 2
+  maxY: 0
   personagem: {fileID: 1979128856}
---- !u!114 &766491382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766491376}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d687537154440a3913a9a3c7977978c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraTarget: {fileID: 0}
-  FollowDistance: 30
-  MaxFollowDistance: 100
-  MinFollowDistance: 2
-  ElevationAngle: 30
-  MaxElevationAngle: 85
-  MinElevationAngle: 0
-  OrbitalAngle: 0
-  CameraMode: 0
-  MovementSmoothing: 1
-  RotationSmoothing: 0
-  MovementSmoothingValue: 25
-  RotationSmoothingValue: 5
-  MoveSensitivity: 2
 --- !u!1 &862409308
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431, y: 243}
+  m_AnchoredPosition: {x: -435, y: -741}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &890689666
@@ -603,13 +555,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 63
+  m_fontSizeBase: 63
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -639,7 +591,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -632.47064, w: 0}
+  m_margin: {x: 0, y: 0, z: -862.384, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -681,7 +633,7 @@ GameObject:
   - component: {fileID: 927928722}
   - component: {fileID: 927928723}
   - component: {fileID: 927928724}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: SocialBubble
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -728,7 +680,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_Sprite: {fileID: -190648175, guid: 19eea6fb25aaa534da5777ad3a4d2495, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -749,8 +701,8 @@ Transform:
   m_GameObject: {fileID: 927928719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.41, y: -0.19, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: -0.03, y: 0.14, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -770,7 +722,7 @@ MonoBehaviour:
   gameController: {fileID: 0}
   friendsController: {fileID: 0}
   circle: {fileID: 1979128854}
-  raioMaximo: 1
+  raioMaximo: 0.5
   speed: 10
   tempoDeEspera: 0
 --- !u!58 &927928723
@@ -1051,12 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  direction: {x: 0, y: 0}
-  SocialBubble: {fileID: 0}
-  maxX: 0
-  minX: 0
-  MaxY: 0
-  MinY: 0
+  animator: {fileID: 0}
 --- !u!1 &1354295942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 254}
+  m_AnchoredPosition: {x: -55, y: 782}
   m_SizeDelta: {x: 904.51, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801337709
@@ -1221,7 +1168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Fa\xE7a 10 amigos antes do tempo acabar"
+  m_text: "Fa\xE7a 10 amigos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1248,8 +1195,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 85
+  m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1417,7 +1364,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_Sprite: {fileID: 21300000, guid: c97560e1460fe9641bf39f8c6a9ed77b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1438,7 +1385,7 @@ Transform:
   m_GameObject: {fileID: 1979128854}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.37, y: -0.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1457,12 +1404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  direction: {x: 0, y: 0}
-  SocialBubble: {fileID: 927928719}
-  maxX: 12
-  minX: -12
-  MaxY: 5.5
-  MinY: -5.5
+  animator: {fileID: 1979128859}
 --- !u!111 &1979128858
 Animation:
   m_ObjectHideFlags: 0
@@ -1470,7 +1412,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979128854}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations: []
@@ -1576,9 +1518,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997716408}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 28.971474, y: 16.041916, z: 1}
+  m_LocalScale: {x: 18, y: 14, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1593,5 +1535,5 @@ SceneRoots:
   - {fileID: 1979128856}
   - {fileID: 927928721}
   - {fileID: 143934151}
-  - {fileID: 1997716410}
   - {fileID: 1911234002}
+  - {fileID: 1997716410}

@@ -15,31 +15,14 @@ public class SocialBubbleManager : MonoBehaviour
     {
         ShowTitle();
         ShowCount();
-        //HideCount();
-        //Invoke("HideFriends", 1f);
-        Invoke("HideTitle", 1.5f);
-        //Invoke("ShowCount", 1.6f);
-        //Invoke("ShowFriends", 2.3f);
     }
     void ShowCount(){
         bubbleCounter.AtualizarTexto();
         Contador.gameObject.SetActive(true);
 
     }
-    void HideCount(){
-        Contador.gameObject.SetActive(false);
-    }
     void ShowTitle(){
         Title.gameObject.SetActive(true);
-    }
-    void HideTitle(){
-        Title.gameObject.SetActive(false);
-    }
-    void HideFriends(){
-        Friends.gameObject.SetActive(false);
-    }
-    void ShowFriends(){
-        Friends.gameObject.SetActive(true);
     }
     // Update is called once per frame
     void Update()
