@@ -23,8 +23,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         NewGame();
-        //buildIndexList = GenerateIntegerList(2,7);
-        buildIndexList = GenerateIntegerList(7,7);
+        buildIndexList = GenerateIntegerList(2,7);
     }
 
     public void NewGame(){
