@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendPrefabController : MonoBehaviour
+public class SocialFriendPrefabController : MonoBehaviour
 {   
     public GameObject friendGameObject;
     public  int foiContado = 1;
@@ -13,7 +13,6 @@ public class FriendPrefabController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //friendGameObject.SetActive(false);
         Debug.Log("FriendPrefabController rodando");
         foiContado = 1;
     }

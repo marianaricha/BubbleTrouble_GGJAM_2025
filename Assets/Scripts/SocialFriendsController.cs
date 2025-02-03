@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendsController : MonoBehaviour
+public class SocialFriendsController : MonoBehaviour
 {
-    public bool dentroDaBolha = false;
-    public ObjectPool objectPoolFriends;
-    public int quantidadeFriends = 10;
+    private ObjectPool objectPoolFriends;
+    private int quantidadeFriends = 10;
     public GameObject SocialBubble;
     public GameObject Friends;
-    private SocialBubbleController socialBubbleController;
 
-    public float x, y;
+    private float x = 8, y = 6;
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("FriendsController rodando");
         objectPoolFriends = new ObjectPool(Friends, quantidadeFriends);
+        objectPoolFriends.ResetPool();
         for (int i = 0; i < quantidadeFriends; i++){
             randomFriend();
         }
@@ -26,7 +25,7 @@ public class FriendsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //objectPoolFriends.GetFromPool();
+        
     }
     private void randomFriend(){
         GameObject friend = objectPoolFriends.GetFromPool();

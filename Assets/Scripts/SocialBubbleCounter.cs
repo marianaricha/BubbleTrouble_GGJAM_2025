@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BubbleCounter : MonoBehaviour
+public class SocialBubbleCounter : MonoBehaviour
 {
     public int Cont;
-    public List<GameObject> friends = new List<GameObject>();
+    public static SocialBubbleCounter Instance;
+    private List<GameObject> friends = new List<GameObject>();
     public TextMeshProUGUI Contador;
 
+    void Awake()
+    {
+        Instance = this;    
+    }
     // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(true);
-        //LoadingFriends();
         Invoke("LoadingFriends", 1.7f);
-        //Invoke("ShowCount", 2.3f);
         Cont = 0;
     }
     void LoadingFriends()
@@ -27,12 +30,12 @@ public class BubbleCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"[BubbleCounter] Número de amigos na lista: {friends.Count}");
+
         for(int i=0; i<friends.Count; i++){
-            Debug.Log("Entrando no for");
-            FriendPrefabController friend = friends[i].GetComponent<FriendPrefabController>();
+
+            SocialFriendPrefabController friend = friends[i].GetComponent<SocialFriendPrefabController>();
             if(friend.foiContado == 1 && !friends[i].gameObject.activeSelf){
-                Debug.Log("Entrou no if");
+
                 Cont += 1;
                 friend.foiContado = 2;
                 AtualizarTexto();

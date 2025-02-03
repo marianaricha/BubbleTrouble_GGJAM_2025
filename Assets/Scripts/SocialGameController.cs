@@ -46,9 +46,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class SocialGameController : MonoBehaviour
 {
-    public float speed = 5f;
+    private float speed = 5f;
     private SpriteRenderer spriteRenderer;
     public Animator animator;
     private Vector3 target;
@@ -58,6 +58,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         target = transform.position;
+        speed = speed * GameManager.Instance.velocityBoost;
     }
     void Update()
     {   

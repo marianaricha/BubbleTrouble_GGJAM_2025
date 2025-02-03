@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SocialBubbleController : MonoBehaviour
 {
-    public GameController gameController;
-    public FriendsController friendsController;
+    public SocialGameController gameController;
+    public SocialFriendsController friendsController;
     public GameObject circle;
     private float tempo = 0;
     public float raioMaximo;

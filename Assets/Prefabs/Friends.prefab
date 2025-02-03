@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4397074527822315486}
   - component: {fileID: 3751216415853923492}
   - component: {fileID: -7715769589861433164}
-  - component: {fileID: 6426157237975102113}
+  - component: {fileID: 3712131034768156518}
   m_Layer: 0
   m_Name: Friends
   m_TagString: Friends
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6426157237975102113
+--- !u!114 &3712131034768156518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,8 +158,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2586473477024906908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35fef74b9aaf54b45bdf61bf6b54bc9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 14405981fbdac0644a1f3bc1507db210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   friendGameObject: {fileID: 2586473477024906908}
-  foiContado: 0
+  foiContado: 1

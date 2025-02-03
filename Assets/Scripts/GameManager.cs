@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         NewGame();
-        buildIndexList = GenerateIntegerList(2,6);
+        //buildIndexList = GenerateIntegerList(2,7);
+        buildIndexList = GenerateIntegerList(7,7);
     }
 
     public void NewGame(){
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel(){
         if(buildIndexList.Count == 0){
-            buildIndexList = GenerateIntegerList(2, 6);
+            buildIndexList = GenerateIntegerList(2, 7);
         }
         TransitionManager.Instance.LoadLevel(GetSceneName(buildIndexList[0])); // mudar o range quando adicionar cena de menu (menu = 0, gameOver = 1, jogos >= 2)
         buildIndexList.RemoveAt(0);
